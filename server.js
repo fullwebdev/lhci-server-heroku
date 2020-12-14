@@ -16,4 +16,8 @@ createServer({
     sqlConnectionSsl: true,
     sqlConnectionUrl: process.env.DATABASE_URL,
   },
+  deleteOldBuildsCron: {
+    schedule: '0 4 * * *',
+    maxAgeInDays: 30
+  }
 }).then(({port}) => console.log('Listening on port', port));
